@@ -22,8 +22,9 @@ async function info(data){
         const language = data[0].languages;
         let languages = ''
         for (const key in language) {
-            languages += language[key] + ' '
+            languages += language[key] + ' , '
         }
+        languages = languages.slice(0,length-2);
         const currency = data[0].currencies;
         let currencies = []
         for (const key in currency) {
@@ -37,7 +38,6 @@ async function info(data){
             cunsymbol += value + ' ';
         })
         const population = data[0].population;
-
         box.innerHTML = `
         <div class="img"><img src="${flag}" alt="Flag"></div>
         <p>Name:- ${name}.</p>
@@ -49,8 +49,10 @@ async function info(data){
         `
     }).catch((error)=>{
         box.innerHTML = '';
-        box.classList.add('error')
         console.log("find some error")
+        setTimeout(() => {
+            box.classList.add('error')
+        },100);
     })
     // try {
     //     const value = await fetch(url);
@@ -69,6 +71,5 @@ btn.addEventListener('click' ,(e)=>{
     if(data === 'India' || data === 'india'){
         data = 'Republic of India';
     }
-    console.log(data)
     info(data);
 })

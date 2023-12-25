@@ -66,6 +66,7 @@ body {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .box p {
@@ -83,6 +84,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 
 
 @media screen and (max-width: 900px) {
